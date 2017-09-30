@@ -17,31 +17,24 @@ class UsuarioController {
         $usuario = null;
         $rotuloBotao = "Inserir";
         include_once 'view/usuario/form.php';
-        //$this->listar();
+        $this->listar();
     }
-    
-    private function loadUsuario() {
-        $this->usuario = Usuario::getINSTANCE();
-        $this->usuario->setNome($_POST['nome']);
-        $this->usuario->setEmail($_POST['email']);
-        $this->usuario->setSenha($_POST['senha']);
-    }
-
 
     public function insercao() {
-        $this->loadUsuario();
-        $this->dao->inserir($this->usuario);
+        $usuario = new Usuario($_POST['nome'], $_POST['email'], $_POST['senha']);
+        $this->dao->inserir($usuario);
         $this->form();
     }
 
     public function listar() {
         $usuarios = $this->dao->listar();
-        include_once 'visao/usuario/listar.php';
+        include_once 'view/usuario/listar.php';
     }
 
     public function alteracao() {
-        $this->loadUsuario();
-        $this->dao->alterar($aluno);
+        $usuario = new Usuario($_POST['nome'], $_POST['email'], $_POST['senha']);
+        $usuario->setId($_POST['id']);
+        $this->dao->alterar($usuario);
         $this->form();
     }
 
@@ -49,7 +42,7 @@ class UsuarioController {
         $acao = 'alteracao';
         $usuario = $this->dao->buscar($_GET['id']);
         $rotuloBotao = "Alterar";
-        include_once 'visao/aluno/form.php';
+        include_once 'view/usuario/form.php';
     }
 
     public function excluir() {

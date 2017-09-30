@@ -3,16 +3,13 @@
 class Usuario {
 
     private $id, $nome, $email, $senha;
-    private static $INSTANCE = null;
 
-    private function __construct() { }
-
-    static function getINSTANCE() {
-        if (self::$INSTANCE == NULL)
-            self::$INSTANCE = new Usuario();
-        return self::$INSTANCE;
+    function __construct($nome, $email, $senha) {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->senha = $senha;
     }
-    
+
     function getId() {
         return $this->id;
     }

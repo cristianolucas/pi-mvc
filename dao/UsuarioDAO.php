@@ -18,7 +18,7 @@ class UsuarioDAO {
     }
     
     function alterar(Usuario $usuario) {
-        $sql = "update usuario set nome='{$usuario->getNome()}', email='{$usuario->getEmail()}', senha='{$usuario->getNome()}'"
+        $sql = "update usuario set nome='{$usuario->getNome()}', email='{$usuario->getEmail()}', senha='{$usuario->getSenha()}'"
         . "where id={$usuario->getId()}";
         pg_query($this->conexao, $sql);
     }

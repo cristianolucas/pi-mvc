@@ -9,13 +9,13 @@ include_once './controller/UsuarioController.php';
 
 if (isset($_GET['classe'])) {
     $classe = $_GET['classe'];
-    $classeControler = new $classe();
+    $classeController = new $classe();
     if (isset($_GET['acao'])) {
         $acao = $_GET['acao'];
-        $classeControler->$acao();
+        $classeController->$acao();
     } elseif (isset($_POST['acao'])) {
         $acao = $_POST['acao'];
-        $classeControler->$acao();
+        $classeController->$acao();
     }
 }
 ?>

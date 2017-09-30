@@ -1,4 +1,4 @@
-<form action="?classe=UsuarioControler" method="post">
+<form action="?classe=UsuarioController" method="post">
     <input type="hidden" name="acao" value="<?= $acao ?>" >
     <input type="hidden" name="id" value="<?= $usuario['id'] ?>" >
     Nome: <input type="text" name="nome" value="<?= $usuario['nome'] ?>"><br>

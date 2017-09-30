@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+
+ini_set("display_errors", TRUE);
+include_once './controller/UsuarioController.php';
+
+?>
+<a href="?classe=UsuarioController&acao=form">Inserir</a>    
+<?php
+
+if (isset($_GET['classe'])) {
+    $classe = $_GET['classe'];
+    $classeControler = new $classe();
+    if (isset($_GET['acao'])) {
+        $acao = $_GET['acao'];
+        $classeControler->$acao();
+    } elseif (isset($_POST['acao'])) {
+        $acao = $_POST['acao'];
+        $classeControler->$acao();
+    }
+}
+?>

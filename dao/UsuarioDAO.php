@@ -7,12 +7,14 @@ class UsuarioDAO {
     private $conexao;
 
     public function __construct() {
-        $this->conexao = Conexao::conectar();
+        $this->conexao = ConexaoDAO::getConexao();
     }
     
-    function inserirDadosPessoais(Usuario $usuario) {
-        $sql = "insert into usuario (nome, emai, senha) values ('{$usuario->getNome()}', '{$usuario->getEmail()}', '{$usuario->getSenha()}');";
-        pg_query($this->conexao, $sql);
+    function inserir(Usuario $usuario) {
+        $sql = "insert into usuario (nome, emai, senha) values ('{$usuario->getNome()}', '{$usuario->getEmail()}', '{$usuario->getSenha()}') returning id;";
+        $resultado = pg_query($this->conexao, $sql);
+        $linha = pg_fetch_array($resultado);
+        $usuario->setId($linha['id']);
     }
     
     function alterar(Usuario $usuario) {

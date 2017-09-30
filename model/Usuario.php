@@ -9,7 +9,7 @@ class Usuario {
 
     static function getINSTANCE() {
         if (self::$INSTANCE == NULL)
-            self::$INSTANCE = new Usuario ();
+            self::$INSTANCE = new Usuario();
         return self::$INSTANCE;
     }
     

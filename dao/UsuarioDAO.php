@@ -1,6 +1,6 @@
 <?php
 
-require_once 'ConexaoDAO.php';
+require_once 'dao/ConexaoDAO.php';
 
 class UsuarioDAO {
     
@@ -32,7 +32,7 @@ class UsuarioDAO {
         $usuarios = array();
         $sql = "select * from usuario";
         $resultado = pg_query($this->conexao, $sql);
-        while($usuario =  pg_fetch_array($resultado)) {
+        while($usuario = pg_fetch_array($resultado)) {
             array_push($usuarios, $usuario);
         }
         return $usuarios;

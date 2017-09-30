@@ -8,8 +8,12 @@
     if ($acao == "insercao") {
         ?>
         Confirmar Senha: <input type="password" name=conf_senha"><br>
+        <input type="submit" value="<?= $rotuloBotao ?>">
+    <?php } else {
+        ?>
+        <input type="submit" value="<?= $rotuloBotao ?>"><br><br>
+        <a href="?classe=EnderecoController&acao=form"><h2>Endereço</h2></a>
         <?php
     }
     ?>
-    <input type="submit" value="<?= $rotuloBotao ?>">
 </form>

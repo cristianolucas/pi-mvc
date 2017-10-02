@@ -17,20 +17,19 @@ class EnderecoController {
         $endereco = null;
         $rotuloBotao = "Inserir";
         include_once 'view/usuario/endereco/form.php';
-        //$this->listar();
     }
 
     public function insercao() {
         $enderecoUsuario = new EnderecoUsuario();
-        if(isset($_POST['numero'])) $enderecoUsuario->setNumero($_POST['numero']);
         if(isset($_POST['complemento'])) $enderecoUsuario->setComplemento($_POST['complemento']);
-        $this->dao->inserir($usuario);
+        $enderecoUsuario->setNumero($_POST['numero']);
+        $enderecoUsuario->setLogradouro($_POST['logradouro']);
+        $enderecoUsuario->setCidade($_POST['cidade']);
+        $enderecoUsuario->setCep($_POST['cep']);
+        $enderecoUsuario->setBairro($_POST['bairro']);
+        $enderecoUsuario->setUsuario($_POST['id']);
+        $this->dao->inserir($enderecoUsuario);
         $this->form();
-    }
-    //ATENÇÃO
-    public function listar() {
-        $usuarios = $this->dao->listar();
-        include_once 'view/usuario/listar.php';
     }
 
     public function alteracao() {
@@ -47,10 +46,5 @@ class EnderecoController {
         $usuario = $this->dao->buscar($_GET['id']);
         $rotuloBotao = "Alterar";
         include_once 'view/usuario/form.php';
-    }
-
-    public function excluir() {
-        $this->dao->excluir($_GET['id']);
-        $this->form();
     }
 }

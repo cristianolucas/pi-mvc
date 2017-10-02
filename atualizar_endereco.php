@@ -19,7 +19,7 @@ $dados['estado'] = (string) $reg->uf;
 $uf_id;
 
 ?>
-Estado: <select name="estado" onchange="attCidade(this.value)">
+Estado: <select name="estado" onchange="attCidade(this.value)" required>
     <option value="">Selecione um Estado</option>
     <?php
     $ufDAO = new UfDAO();
@@ -37,7 +37,7 @@ Estado: <select name="estado" onchange="attCidade(this.value)">
     }
     ?>
 </select><br>
-Cidade: <select name="cidade" id="select_cidade">
+Cidade: <select name="cidade" id="select_cidade" required>
     <option value="">Selecione uma Cidade</option>
     <?php
     $cidadeDAO = new CidadeDAO();
@@ -51,8 +51,10 @@ Cidade: <select name="cidade" id="select_cidade">
     }
     ?>
 </select><br>
-Bairro: <input type="text" name="bairro" <?php  echo $dados['bairro'] == null ? "placeholder=\"Informe seu bairro\"" : "value=\"" . $dados['bairro'] . "\"" ?>>
+Bairro: <input type="text" name="bairro" <?php  echo $dados['bairro'] == null ? "placeholder=\"Informe seu bairro\"" : "value=\"" . $dados['bairro'] . "\"" ?> required>
 <br>
-Logradouro: <input type="text" name="logradouro" <?php echo $dados['rua'] == ' ' ? "placeholder=\"Informe seu logradouro\"" : "value=\"" . $dados['rua'] . "\""?>>
+Logradouro: <input type="text" name="logradouro" <?php echo $dados['rua'] == ' ' ? "placeholder=\"Informe seu logradouro\"" : "value=\"" . $dados['rua'] . "\""?> required>
 <br>
-Número: <input type="number" name="numero">
+Número: <input type="number" name="numero" required value="1">
+<br>
+Complemento: <input type="text" name="complemento" value="abc">

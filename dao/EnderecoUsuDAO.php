@@ -1,16 +1,35 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once 'dao/ConexaoDAO.php';
 
-/**
- * Description of EnderecoUsuDAO
- *
- * @author Diego
- */
 class EnderecoUsuDAO {
-    //put your code here
+
+    private $conexao;
+
+    public function __construct() {
+        $this->conexao = ConexaoDAO::getConexao();
+    }
+
+    function inserir(EnderecoUsuario $endereco) {
+        /* INSERÇÃO TABELA LOGRADOURO */
+        $sql = "insert into logradouro (cidade_id, logradouro, bairro, cep) values ({$endereco->getCidade()}, "
+        . "'{$endereco->getLogradouro()}', '{$endereco->getBairro()}', {$endereco->getCep()}) returning id;";
+        $linha = $this->exec_rquery($sql);
+        $logradouro_id = $linha['id'];
+        
+        /* INSERÇÃO TABELA ENDERECO_USUARIO */
+        $sql = "insert into endereco_usuario (". 
+                (($endereco->getComplemento() != NULL) ? "complemento, " : "") . 
+                 "numero, logradouro_id, usuario_id) values (" . 
+                (($endereco->getComplemento() != NULL) ? "'{$endereco->getComplemento()}'," : "") . 
+                "{$endereco->getNumero()}, $logradouro_id, {$endereco->getUsuario()}) returning id;";
+        $linha = $this->exec_rquery($sql);
+        $endereco->setId($linha['id']);
+    }
+    
+    function exec_rquery($query) {
+        $resultado = pg_query($this->conexao, $query);
+        $linha = pg_fetch_array($resultado);
+        return $linha;
+    }
 }

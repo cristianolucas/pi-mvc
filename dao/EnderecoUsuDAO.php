@@ -32,4 +32,9 @@ class EnderecoUsuDAO {
         $linha = pg_fetch_array($resultado);
         return $linha;
     }
+    
+    function buscar($id) {
+        $sql = "select endereco_usuario.numero, endereco_usuario.complemento, logradouro.bairro, logradouro.logradouro, logradouro.cep, cidade.id as cidade_id, uf.id as uf_id from endereco_usuario join usuario on usuario.id = endereco_usuario.usuario_id join logradouro on endereco_usuario.logradouro_id = logradouro.id join cidade on cidade.id = logradouro.cidade_id join uf on uf.id = cidade.uf_id where usuario.id = $id";
+        return $this->exec_rquery($sql);
+    }
 }

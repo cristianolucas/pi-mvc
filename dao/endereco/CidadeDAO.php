@@ -10,13 +10,13 @@ class CidadeDAO {
     }
     
     function buscarTodos($uf) {
-        $ufs = array();
+        $cidades = array();
         $sql = "select * from cidade where uf_id = " . $uf;
         $resultado = pg_query($this->conexao, $sql);
-        while($uf = pg_fetch_array($resultado)) {
-            array_push($ufs, $uf);
+        while($cidade = pg_fetch_array($resultado)) {
+            array_push($cidades, $cidade);
         }
-        return $ufs;
+        return $cidades;
     }
     
     function buscar($id) {

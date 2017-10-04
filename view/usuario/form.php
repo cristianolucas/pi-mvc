@@ -1,14 +1,14 @@
-<form action="?classe=UsuarioController" method="post">
+<form action="?classe=UsuarioController" method="post" name="formUsuario" id="formUsuario">
     <input type="hidden" name="acao" value="<?= $acao ?>" >
     <input type="hidden" name="id" value="<?= $usuario['id'] ?>" >
-    Nome: <input type="text" name="nome" value="<?= $usuario['nome'] ?>"><br>
-    Email: <input type="email" name="email" value="<?= $usuario['email'] ?>"><br>
-    Senha: <input type="password" name="senha" value="<?= $usuario['senha'] ?>"><br>
+    Nome: <input type="text" name="nome" value="<?= $usuario['nome'] ?>" required><br>
+    Email: <input type="email" name="email" value="<?= $usuario['email'] ?>" required><br>
+    Senha: <input type="password" name="senha" value="<?= $usuario['senha'] ?>" required><br>
     <?php
     if ($acao == "insercao") {
         ?>
-        Confirmar Senha: <input type="password" name=conf_senha"><br>
-        <input type="submit" value="<?= $rotuloBotao ?>">
+        Confirmar Senha: <input type="password" name=conf_senha" id="senha"><br>
+        <input type="submit" value="<?= $rotuloBotao ?>" required>
     <?php } else {
         ?>
         <input type="submit" value="<?= $rotuloBotao ?>"><br><br>

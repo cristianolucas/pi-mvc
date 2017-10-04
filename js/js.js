@@ -15,3 +15,16 @@ function attCidade(str) {
     xmlhttp.open("GET", "atualizar_cidade.php?uf=" + str, true);
     xmlhttp.send();
 }
+
+function validarSenha() {
+    senha1 = document.formUsuario.senha.value;
+    senha2 = document.formUsuario.conf_senha.value;
+    
+    if(senha1 !== senha2) {
+        document.getElementById("senha").focus();
+        alert("AQUILO");
+        return false;
+    } else {
+        alert("ISSO");
+    }
+}

@@ -30,7 +30,7 @@ class EnderecoController {
 
     public function alteracao() {
         $enderecoUsuario = $this->setUsuario();
-        $this->dao->alterar($enderecoUsuario);
+        echo $this->dao->alterar($enderecoUsuario);
         $this->form();
         header("Location: ?classe=UsuarioController&acao=form");
     }
@@ -42,7 +42,7 @@ class EnderecoController {
         $endereco->setNumero($_POST['numero']);
         $endereco->setLogradouro($_POST['logradouro']);
         if (isset($_POST['logradouro_id']))
-            $endereco->setLogradouro($_POST['logradouro_id']);
+            $endereco->setLogradouroId($_POST['logradouro_id']);
         $endereco->setCidade($_POST['cidade']);
         $endereco->setCep($_POST['cep']);
         $endereco->setBairro($_POST['bairro']);

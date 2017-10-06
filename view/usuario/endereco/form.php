@@ -17,7 +17,7 @@
                 }
                 ?>
             </select><br>
-            Cidade: <select name="cidade">
+            Cidade: <select name="cidade" id="select_cidade">
                 <?php
                 foreach ($cidades as $cidade) {
                     if ($cidade['id'] == $endereco['cidade_id'])
@@ -38,7 +38,7 @@
             Complemento: <input type="text" name="complemento" value="<?= $endereco['complemento'] ?>"><br>
         <?php } else { ?>
 
-            Estado: <select name="estado" disabled onchange="attCidade(this.value)">
+            Estado: <select name="estado" disabled>
                 <option>Informe seu CEP</option>
             </select><br>
             Cidade: <select name="cidade" disabled>

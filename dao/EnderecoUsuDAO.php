@@ -14,9 +14,10 @@ class EnderecoUsuDAO {
         $sql_endereco_usuario = "update endereco_usuario set complemento = '{$endereco->getComplemento()}', "
         . "numero = {$endereco->getNumero()} where usuario_id = {$endereco->getId()};";
         $sql_logradouro = "update logradouro set cep = '{$endereco->getCep()}', bairro = '{$endereco->getBairro()}', "
-        . "logradouro = '{$endereco->getLogradouro()}', cidade_id = {$endereco->getCidade()} where id = {$endereco->getLogradouro()};";
+        . "logradouro = '{$endereco->getLogradouro()}', cidade_id = {$endereco->getCidade()} where id = {$endereco->getLogradouroId()};";
         $sql = $sql_endereco_usuario.$sql_logradouro;
         pg_query($this->conexao, $sql);
+        return $sql;
     }
 
     function inserir(EnderecoUsuario $endereco) {

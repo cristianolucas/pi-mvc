@@ -12,7 +12,7 @@
     <?php } else {
         ?>
         <input type="submit" value="<?= $rotuloBotao ?>"><br><br>
-        <a href="?classe=EnderecoController&acao=form&id=<?= $usuario['id'] ?>"><h2>Endereço</h2></a>
+        <a href="?classe=EnderecoController&acao=<?= (($endereco) ? "form_alteracao" : "form") ?>&id=<?= $usuario['id'] ?>"><h2>Endereço</h2></a>
         <?php
     }
     ?>

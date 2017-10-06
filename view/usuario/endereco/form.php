@@ -31,7 +31,9 @@
                 ?>
             </select><br>
             Bairro: <input type="text"  name="bairro" value="<?= $endereco['bairro'] ?>"><br>
+            
             Logradouro: <input type="text"  name="logradouro" value="<?= $endereco['logradouro'] ?>"><br>
+            <input type="hidden" name="logradouro_id" value="<?= $endereco['logradouro_id'] ?>" >
             Número: <input type="number" name="numero" value="<?= $endereco['numero'] ?>"><br>
             Complemento: <input type="text" name="complemento" value="<?= $endereco['complemento'] ?>"><br>
         <?php } else { ?>

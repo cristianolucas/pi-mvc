@@ -8,7 +8,6 @@ include_once 'dao/endereco/CidadeDAO.php';
 class EnderecoController {
 
     private $dao;
-    private $endereco;
 
     function __construct() {
         $this->dao = new EnderecoUsuDAO();
@@ -23,28 +22,33 @@ class EnderecoController {
     }
 
     public function insercao() {
-        $enderecoUsuario = new EnderecoUsuario();
-        if (isset($_POST['complemento']))
-            $enderecoUsuario->setComplemento($_POST['complemento']);
-        $enderecoUsuario->setNumero($_POST['numero']);
-        $enderecoUsuario->setLogradouro($_POST['logradouro']);
-        $enderecoUsuario->setCidade($_POST['cidade']);
-        $enderecoUsuario->setCep($_POST['cep']);
-        $enderecoUsuario->setBairro($_POST['bairro']);
-        $enderecoUsuario->setUsuario($_POST['id']);
+        $enderecoUsuario = $this->setUsuario();
         $this->dao->inserir($enderecoUsuario);
         $this->form();
+        header("Location: ?classe=UsuarioController&acao=form");
     }
 
     public function alteracao() {
-        $enderecoUsuario = new EnderecoUsuario();
-        if (isset($_POST['numero']))
-            $enderecoUsuario->setNumero($_POST['numero']);
-        if (isset($_POST['complemento']))
-            $enderecoUsuario->setComplemento($_POST['complemento']);
-        $enderecoUsuario->setId($_POST['id']);
+        $enderecoUsuario = $this->setUsuario();
         $this->dao->alterar($enderecoUsuario);
         $this->form();
+        header("Location: ?classe=UsuarioController&acao=form");
+    }
+
+    function setUsuario() {
+        $endereco = new EnderecoUsuario();
+        if (isset($_POST['complemento']))
+            $endereco->setComplemento($_POST['complemento']);
+        $endereco->setNumero($_POST['numero']);
+        $endereco->setLogradouro($_POST['logradouro']);
+        if (isset($_POST['logradouro_id']))
+            $endereco->setLogradouro($_POST['logradouro_id']);
+        $endereco->setCidade($_POST['cidade']);
+        $endereco->setCep($_POST['cep']);
+        $endereco->setBairro($_POST['bairro']);
+        $endereco->setUsuario($_POST['id']);
+        $endereco->setId($_POST['id']);
+        return $endereco;
     }
 
     public function form_alteracao() {

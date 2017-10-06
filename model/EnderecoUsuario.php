@@ -6,6 +6,7 @@ class EnderecoUsuario {
     private $complemento;
     private $numero;
     private $logradouro;
+    private $logradouroId;
     private $bairro;
     private $cep;
     private $cidade;
@@ -14,6 +15,15 @@ class EnderecoUsuario {
     function __construct() {
         
     }
+    
+    function getLogradouroId() {
+        return $this->logradouroId;
+    }
+
+    function setLogradouroId($logradouroId) {
+        $this->logradouroId = $logradouroId;
+    }
+        
     function getId() {
         return $this->id;
     }

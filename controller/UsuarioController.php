@@ -40,6 +40,7 @@ class UsuarioController {
 
     public function form_alteracao() {
         $acao = 'alteracao';
+        $endereco = $this->dao->buscarEndereco($_GET['id']);
         $usuario = $this->dao->buscar($_GET['id']);
         $rotuloBotao = "Alterar";
         include_once 'view/usuario/form.php';

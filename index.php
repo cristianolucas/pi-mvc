@@ -8,8 +8,10 @@
         ini_set("display_errors", TRUE);
         include_once 'controller/UsuarioController.php';
         include_once 'controller/EnderecoController.php';
+        include_once 'controller/MercadoController.php';
         ?>
-        <a href="?classe=UsuarioController&acao=form">Inserir</a>
+        <a href="?classe=UsuarioController&acao=form">Pessoa</a> | 
+        <a href="?classe=MercadoController&acao=form">Mercado</a>
         <?php
         if (isset($_GET['classe'])) {
             $classe = $_GET['classe'];

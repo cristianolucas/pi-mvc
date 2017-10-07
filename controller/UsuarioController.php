@@ -6,7 +6,6 @@ include_once 'model/Usuario.php';
 class UsuarioController {
     
     private $dao;
-    private $usuario;
     
     function __construct() {
         $this->dao = new UsuarioDAO();

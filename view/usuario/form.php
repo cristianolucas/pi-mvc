@@ -8,7 +8,7 @@
     if ($acao == "insercao") {
         ?>
         Confirmar Senha: <input type="password" name=conf_senha" id="senha"><br>
-        <input type="submit" value="<?= $rotuloBotao ?>" required>
+        <input type="submit" value="<?= $rotuloBotao ?>">
     <?php } else {
         ?>
         <input type="submit" value="<?= $rotuloBotao ?>"><br><br>

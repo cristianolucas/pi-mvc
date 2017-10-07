@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class Mercado {
 
     private $id, $telefone, $nome, $cnpj;

@@ -2,6 +2,11 @@
 
 include_once 'model/Logradouro.php';
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class EnderecoUsuario extends Logradouro {
 
     private $id;

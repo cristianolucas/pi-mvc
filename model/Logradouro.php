@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class Logradouro {
     private $logradouro;
     private $logradouroId;

@@ -3,6 +3,11 @@
 include_once 'dao/MercadoDAO.php';
 include_once 'model/Mercado.php';
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class MercadoController {
     private $dao;
     

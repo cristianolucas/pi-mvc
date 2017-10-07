@@ -3,6 +3,11 @@
 include_once 'dao/UsuarioDAO.php';
 include_once 'model/Usuario.php';
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class UsuarioController {
     
     private $dao;

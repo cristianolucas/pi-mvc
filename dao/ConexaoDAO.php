@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class ConexaoDAO {
     private static $host = "localhost";
     private static $user = "postgres";

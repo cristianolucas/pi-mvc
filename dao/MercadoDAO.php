@@ -2,6 +2,11 @@
 
 require_once 'dao/ConexaoDAO.php';
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class MercadoDAO {
 
     private $conexao;

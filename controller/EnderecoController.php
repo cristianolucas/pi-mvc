@@ -5,6 +5,11 @@ include_once 'dao/EnderecoUsuDAO.php';
 include_once 'dao/endereco/UfDAO.php';
 include_once 'dao/endereco/CidadeDAO.php';
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class EnderecoController {
 
     private $dao;

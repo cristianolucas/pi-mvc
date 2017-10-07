@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of Localizacao
+ *
+ * @author Diego
+ */
 class Usuario {
 
     private $id, $nome, $email, $senha;

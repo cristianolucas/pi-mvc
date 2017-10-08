@@ -11,7 +11,16 @@ class Logradouro {
     private $bairro;
     private $cep;
     private $cidade;
+    private $mercado;
     
+    function getMercado() {
+        return $this->mercado;
+    }
+
+    function setMercado($mercado) {
+        $this->mercado = $mercado;
+    }
+
     function getLogradouroId() {
         return $this->logradouroId;
     }

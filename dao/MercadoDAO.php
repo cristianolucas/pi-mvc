@@ -49,6 +49,15 @@ class MercadoDAO {
         }
         return $mercados;
     }
+    
+    function buscarLocalizacao($id) {
+        $sql = "select mercado_id from localizacao where mercado_id = $id";
+        $resultado = pg_query($this->conexao, $sql);
+        if (pg_num_rows($resultado) >= 1)
+            return true;
+        else
+            return false;
+    }
             
     function exc_rquery($sql) {
         return pg_query($this->conexao, $sql);

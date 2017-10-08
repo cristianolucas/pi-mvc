@@ -16,6 +16,7 @@ class MercadoController {
     }
 
     function form() {
+        $alterar = false;
         $acao = 'insercao';
         $mercado = null;
         $rotuloBotao = "Inserir";
@@ -42,8 +43,10 @@ class MercadoController {
     }
 
     public function form_alteracao() {
+        $alterar = true;
         $acao = 'alteracao';
         $mercado = $this->dao->buscar($_GET['id']);
+        $localizacao = $this->dao->buscarLocalizacao($_GET['id']);
         $rotuloBotao = "Alterar";
         include_once 'view/mercado/form.php';
     }

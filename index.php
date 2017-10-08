@@ -9,6 +9,7 @@
         include_once 'controller/UsuarioController.php';
         include_once 'controller/EnderecoController.php';
         include_once 'controller/MercadoController.php';
+        include_once 'controller/LocalizacaoController.php';
         ?>
         <a href="?classe=UsuarioController&acao=form">Pessoa</a> | 
         <a href="?classe=MercadoController&acao=form">Mercado</a>

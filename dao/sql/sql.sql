@@ -5,4 +5,7 @@ alter table endereco_usuario add usuario_id int references usuario(id) on delete
 alter table endereco_usuario add logradouro_id int references logradouro(id) on delete cascade
 
 
-select * from mercado
+select * from localizacao
+select * from logradouro
+
+delete from logradouro where id = 19

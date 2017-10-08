@@ -8,10 +8,12 @@ include_once 'model/Usuario.php';
  *
  * @author Diego
  */
+session_start();
+
 class UsuarioController {
-    
+
     private $dao;
-    
+
     function __construct() {
         $this->dao = new UsuarioDAO();
     }
@@ -42,6 +44,40 @@ class UsuarioController {
         $this->form();
     }
 
+    function deslogar() {
+        session_destroy();
+        header("Location: ?classe=UsuarioController");
+    }
+
+    public static function logado() {
+        $return = false;
+        if (isset($_SESSION['logado'])) {
+            if ($_SESSION['logado'] === "sim") {
+                $return = true;
+            }
+        }
+        return $return;
+    }
+
+    public function login() {
+        $usuario = $this->dao->buscar_login($_POST['email'], $_POST['senha']);
+        if ($usuario === false) {
+            $_SESSION['logado'] = false;
+        } else {
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['email'] = $usuario['email'];
+            $_SESSION['senha'] = $usuario['senha'];
+            $_SESSION['logado'] = "sim";
+            header("Location: ?classe=UsuarioController&acao=listar&id=$_SESSION[id]");
+        }
+    }
+
+    public function form_login() {
+        $acao = 'login';
+        $rotuloBotao = "Login";
+        include_once 'view/usuario/form_login.php';
+    }
+
     public function form_alteracao() {
         $acao = 'alteracao';
         $endereco = $this->dao->buscarEndereco($_GET['id']);
@@ -54,4 +90,5 @@ class UsuarioController {
         $this->dao->excluir($_GET['id']);
         $this->form();
     }
+
 }

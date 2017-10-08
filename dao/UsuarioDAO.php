@@ -37,12 +37,21 @@ class UsuarioDAO {
         pg_query($this->conexao, $sql);
     }
 
-    function excluir($id) {        
+    function excluir($id) {
         $sql_logradouro = "delete from logradouro where id=(select logradouro_id from endereco_usuario where usuario_id=$id);";
         $sql_endereco = "delete from endereco_usuario where usuario_id = $id;";
         $sql_usuario = "delete from usuario where id = $id";
-        $sql = $sql_logradouro.$sql_endereco.$sql_usuario;
+        $sql = $sql_logradouro . $sql_endereco . $sql_usuario;
         pg_query($this->conexao, $sql);
+    }
+
+    function buscar_login($email, $senha) {
+        $sql = "select * from usuario where email = '$email' and senha = '$senha'";
+        $resultado = pg_query($this->conexao, $sql);
+        if(pg_num_rows($resultado) > 0) 
+            return pg_fetch_array($resultado);
+        else
+            return false;
     }
 
     function listar() {

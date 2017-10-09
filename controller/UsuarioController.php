@@ -4,7 +4,6 @@ include_once 'dao/UsuarioDAO.php';
 include_once 'model/Usuario.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */
@@ -23,7 +22,7 @@ class UsuarioController {
         $usuario = null;
         $rotuloBotao = "Inserir";
         include_once 'view/usuario/form.php';
-        $this->listar();
+        //$this->listar();
     }
 
     public function insercao() {

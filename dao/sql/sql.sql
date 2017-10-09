@@ -9,3 +9,12 @@ select * from localizacao
 select * from logradouro
 
 delete from logradouro where id = 19
+
+create table usuario_mercado (
+    usuario_id int references usuario(id),
+    mercado_id int references mercado(id),
+    avaliacao int
+    primary key (usuario_id, mercado_id)
+);
+
+select * from usuario_mercado

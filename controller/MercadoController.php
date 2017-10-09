@@ -4,7 +4,6 @@ include_once 'dao/MercadoDAO.php';
 include_once 'model/Mercado.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */
@@ -14,7 +13,19 @@ class MercadoController {
     function __construct() {
         $this->dao = new MercadoDAO();
     }
+    
+    public function getAvaliacao($mercado) {
+        return $this->dao->getPercentualAvaliacao($mercado);
+    }
 
+    public function avaliar() {
+        if($this->dao->getAvaliacao($_GET['mercado'], $_GET['usuario'])) {
+            echo "<br>Você já avaliou este mercado!";
+        } else {
+            $this->dao->avaliar($_GET['mercado'], $_GET['usuario'], $_GET['avaliacao']);
+        }
+    }
+    
     function form() {
         $alterar = false;
         $acao = 'insercao';

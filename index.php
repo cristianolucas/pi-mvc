@@ -13,7 +13,8 @@
         if (UsuarioController::logado()) {
             ?>
             <a href="?classe=UsuarioController&acao=deslogar">Sair</a> | 
-            <a href="?classe=UsuarioController&acao=listar">Listar</a>
+            <a href="?classe=UsuarioController&acao=listar">Listar</a> | 
+            <a href="?classe=MercadoController&acao=form">Mercados</a>
             <?php
         } else {
             ?>

@@ -3,7 +3,6 @@
 require_once 'dao/ConexaoDAO.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */

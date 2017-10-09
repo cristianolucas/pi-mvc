@@ -3,7 +3,6 @@
 require_once 'dao/ConexaoDAO.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */
@@ -15,6 +14,26 @@ class MercadoDAO {
         $this->conexao = ConexaoDAO::getConexao();
     }
 
+    public function getPercentualAvaliacao($mercado) {
+        $sql = "select round(avg(avaliacao), 1) from usuario_mercado where mercado_id = $mercado";
+        $resultado = $this->exc_rquery($sql);
+        $linha = pg_fetch_array($resultado);
+        return $linha[0];
+    }
+    
+    public function getAvaliacao($mercado, $usuario) {
+        if(pg_num_rows(pg_query($this->conexao, "select * from usuario_mercado where mercado_id = $mercado and usuario_id = $usuario")) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function avaliar($mercado, $usuario, $avaliacao) {
+        $sql = "insert into usuario_mercado (usuario_id, mercado_id, avaliacao) values ($usuario, $mercado, $avaliacao)";
+        pg_query($this->conexao, $sql);
+    }
+    
     public function inserir(Mercado $mercado) {
         $sql = "insert into mercado (telefone, nome, cnpj) values ('{$mercado->getTelefone()}', '{$mercado->getNome()}', "
                 . "'{$mercado->getCnpj()}') returning id";

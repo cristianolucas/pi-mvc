@@ -6,7 +6,6 @@ include_once 'dao/endereco/UfDAO.php';
 include_once 'dao/endereco/CidadeDAO.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */

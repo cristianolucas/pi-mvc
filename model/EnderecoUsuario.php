@@ -3,7 +3,6 @@
 include_once 'model/Logradouro.php';
 
 /**
- * Description of Localizacao
  *
  * @author Diego
  */

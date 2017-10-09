@@ -28,3 +28,10 @@ function validarSenha() {
         alert("ISSO");
     }
 }
+
+function janelaAvaliarMercado(mercado, usuario) {
+    var val = prompt("Informe quantos porcento deseja avaliar este mercado!\nDeixe vazio para cancelar!");
+    if(val !== null && val !== "") {
+        location.href = "?classe=MercadoController&acao=avaliar&mercado="+ mercado +"&usuario="+usuario+"&avaliacao="+val;
+    }
+}

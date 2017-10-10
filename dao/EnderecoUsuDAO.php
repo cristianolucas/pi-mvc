@@ -21,7 +21,7 @@ class EnderecoUsuDAO {
         . "logradouro = '{$endereco->getLogradouro()}', cidade_id = {$endereco->getCidade()} where id = {$endereco->getLogradouroId()};";
         $sql = $sql_endereco_usuario.$sql_logradouro;
         pg_query($this->conexao, $sql);
-        return $sql;
+        
     }
 
     function inserir(EnderecoUsuario $endereco) {

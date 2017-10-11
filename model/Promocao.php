@@ -1,23 +1,23 @@
 <?php
 
 class Promocao {
-    private $id, $dtValidade;
+    private $dtValidade, $produtoSup;
     
-    function __construct($id, $dtValidade) {
-        $this->id = $id;
+    function __construct($dtValidade, $produtoSup) {
         $this->dtValidade = $dtValidade;
+        $this->produtoSup = $produtoSup;
     }
     
-    function getId() {
-        return $this->id;
+    function getProdutoSup() {
+        return $this->produtoSup;
     }
 
+    function setProdutoSup($produtoSup) {
+        $this->produtoSup = $produtoSup;
+    }
+    
     function getDtValidade() {
         return $this->dtValidade;
-    }
-
-    function setId($id) {
-        $this->id = $id;
     }
 
     function setDtValidade($dtValidade) {

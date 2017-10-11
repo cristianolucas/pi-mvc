@@ -10,11 +10,13 @@
         include_once 'controller/EnderecoController.php';
         include_once 'controller/MercadoController.php';
         include_once 'controller/LocalizacaoController.php';
+        include_once 'controller/PromocaoController.php';
         if (UsuarioController::logado()) {
             ?>
             <a href="?classe=UsuarioController&acao=deslogar">Sair</a> | 
             <a href="?classe=UsuarioController&acao=listar">Listar</a> | 
-            <a href="?classe=MercadoController&acao=form">Mercados</a>
+            <a href="?classe=MercadoController&acao=form">Mercados</a> |
+            <a href="?classe=PromocaoController&acao=form">Promocao(Teste)</a> |
             <?php
         } else {
             ?>

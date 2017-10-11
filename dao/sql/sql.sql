@@ -17,4 +17,7 @@ create table usuario_mercado (
     primary key (usuario_id, mercado_id)
 );
 
-select * from usuario_mercado
+select * from mercado
+select * from promocao
+
+alter table promocao add produto_id int primary key references produto_mer(id) on delete cascade

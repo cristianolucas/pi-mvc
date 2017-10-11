@@ -2,8 +2,7 @@
 
 class Categoria {
 
-    private $categoria_nome;
-    private $descricao;
+    private $categoria_nome, $descricao, $id;
 
     function __construct($categoria_nome, $descricao) {
         $this->categoria_nome = $categoria_nome;
@@ -25,6 +24,14 @@ class Categoria {
     function setDescricao($descricao) {
         $this->descricao = $descricao;
         
+    }
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
     }
 
 }

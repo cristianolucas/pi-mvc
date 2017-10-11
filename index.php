@@ -11,12 +11,14 @@
         include_once 'controller/MercadoController.php';
         include_once 'controller/LocalizacaoController.php';
         include_once 'controller/CategoriaController.php';
+        include_once 'controller/ProdutoController.php';
         if (UsuarioController::logado()) {
             ?>
             <a href="?classe=UsuarioController&acao=deslogar">Sair</a> | 
             <a href="?classe=UsuarioController&acao=listar">Listar</a> | 
             <a href="?classe=MercadoController&acao=form">Mercados</a> |
             <a href="?classe=CategoriaController&acao=form">Categoria</a> |
+            <a href="?classe=ProdutoController&acao=form">Produto</a> |
             <?php
         } else {
             ?>

@@ -77,6 +77,17 @@ class MercadoDAO {
         else
             return false;
     }
+    
+    function getLocalizacao($id) {
+        $sql = "select numero, complemento, bairro, logradouro, cep from localizacao join logradouro on "
+                . "localizacao.logradouro_id = logradouro.id where mercado_id = $id";
+        $resultado = pg_query($this->conexao, $sql);
+        return pg_fetch_array($resultado);
+    }
+    
+    function getProdutos($id) {
+        
+    }
             
     function exc_rquery($sql) {
         return pg_query($this->conexao, $sql);

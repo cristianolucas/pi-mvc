@@ -17,8 +17,10 @@ create table usuario_mercado (
     primary key (usuario_id, mercado_id)
 );
 
-select * from produto
+select * from produto_mer join produto
 
 select produto.*, categoria.nome as categoria from produto join categoria on categoria.id = produto.categoria_id where produto.id = 1
 
- update produto set nome = 'Teste', unidade_medida = 'teste' where id = 1; 
+select numero, complemento, bairro, logradouro, cep from localizacao join logradouro on localizacao.logradouro_id = logradouro.id where mercado_id = 1
+
+select * from produto_mer

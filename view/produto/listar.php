@@ -20,3 +20,25 @@ if ($produtos != null) {
     }
     ?>
 </table>  
+<?php
+$pagina_posterior = $pagina + 1;
+$pagina_anterior = $pagina - 1;
+
+if($pagina > 1) {
+    echo "<a href=?classe=ProdutoController&acao=form&pagina=$pagina_anterior>Anterior</a>";
+}
+
+for ($i = 1; $i <= $quantidade_de_paginas; $i++) {
+    if($pagina == $i) {
+        echo "<a href=?classe=ProdutoController&acao=form&pagina=$i><b>$i</b></a>";
+    } else {
+        echo "<a href=?classe=ProdutoController&acao=form&pagina=$i>$i</a>";
+    }
+}
+
+
+if($pagina < $quantidade_de_paginas) {
+    echo "<a href=?classe=ProdutoController&acao=form&pagina=$pagina_posterior>Proxima</a>";
+}
+
+?>

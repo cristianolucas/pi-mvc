@@ -33,9 +33,9 @@ class ProdutoDAO {
         return $linha;
     }
     
-    public function listar() {
+    public function listar($offset) {
         $produtos = array();
-        $sql = "select produto.*, categoria.nome as categoria from produto join categoria on categoria.id = produto.categoria_id";
+        $sql = "select produto.*, categoria.nome as categoria from produto join categoria on categoria.id = produto.categoria_id limit 10 offset $offset";
         $resultado = pg_query($this->conexao, $sql);
         while ($linha = pg_fetch_array($resultado)) {
             array_push($produtos, $linha);
@@ -51,5 +51,11 @@ class ProdutoDAO {
     function buscar($id) {
         $sql = "select produto.*, categoria.nome as categoria, categoria.id as categoria_id from produto join categoria on categoria.id = produto.categoria_id where produto.id = $id";
         return $this->exec_rquery($sql);
+    }
+    
+    public function quantidade() {
+        $sql = "select * from produto";
+        $resultado = pg_query($this->conexao, $sql);
+        return pg_num_rows($resultado);
     }
 }

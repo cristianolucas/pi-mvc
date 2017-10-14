@@ -18,7 +18,25 @@ function attCidade(str) {
 
 function janelaAvaliarMercado(mercado, usuario) {
     var val = prompt("Informe quantos porcento deseja avaliar este mercado!\nDeixe vazio para cancelar!");
-    if(val !== null && val !== "") {
-        location.href = "?classe=MercadoController&acao=avaliar&mercado="+ mercado +"&usuario="+usuario+"&avaliacao="+val;
+    if (val !== null && val !== "") {
+        location.href = "?classe=MercadoController&acao=avaliar&mercado=" + mercado + "&usuario=" + usuario + "&avaliacao=" + val;
     }
+}
+
+function adicionarProdutoMercado(mercado) {
+    location.href = "?classe=ProdutoSupermercadoController&acao=form&id=" + mercado;
+}
+
+var selecionado = false;
+function selectProdutoFormProdutoSupermercado(quantidade) {
+    for (var i = 0; i < quantidade; i++) {
+        if (selecionado) {
+            document.getElementById("produto_" + i).disabled = false;
+        } else {
+            if (!document.getElementById("produto_" + i).checked) {
+                document.getElementById("produto_" + i).disabled = true;
+            }
+        }
+    }
+    selecionado = !selecionado;
 }

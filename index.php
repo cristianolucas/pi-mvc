@@ -12,6 +12,7 @@
         include_once 'controller/LocalizacaoController.php';
         include_once 'controller/CategoriaController.php';
         include_once 'controller/ProdutoController.php';
+        include_once 'controller/ProdutoSupermercadoController.php';
         if (UsuarioController::logado()) {
             ?>
             <a href="?classe=UsuarioController&acao=deslogar">Sair</a> | 
@@ -27,16 +28,16 @@
             <?php
         }
         if (isset($_GET['classe'])) {
-                $classe = $_GET['classe'];
-                $classeController = new $classe();
-                if (isset($_GET['acao'])) {
-                    $acao = $_GET['acao'];
-                    $classeController->$acao();
-                } elseif (isset($_POST['acao'])) {
-                    $acao = $_POST['acao'];
-                    $classeController->$acao();
-                }
+            $classe = $_GET['classe'];
+            $classeController = new $classe();
+            if (isset($_GET['acao'])) {
+                $acao = $_GET['acao'];
+                $classeController->$acao();
+            } elseif (isset($_POST['acao'])) {
+                $acao = $_POST['acao'];
+                $classeController->$acao();
             }
+        }
         ?>
     </body>
 </html>

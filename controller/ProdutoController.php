@@ -22,7 +22,7 @@ class ProdutoController {
         $categoria = new CategoriaDAO();
         $categorias = $categoria->listar();
         include_once 'view/produto/form.php';
-        $this->listar();
+        $this->listar(0);
     }
 
     public function insercao() {
@@ -32,8 +32,29 @@ class ProdutoController {
     }
 
     public function listar() {
-        $produtos = $this->dao->listar();
+        if(isset($_GET['pagina'])) {
+            $pagina = $_GET['pagina'];
+        } else {
+            $pagina = 1;
+        }
+        $quantidade_de_registros = $this->dao->quantidade();
+        $quantidade_de_paginas = ceil($quantidade_de_registros / 10);
+        $offset = ($pagina * 10) - 10;
+        $produtos = $this->dao->listar($offset);
         include_once 'view/produto/listar.php';
+    }
+    
+    public function listarFormProduto() {
+        if(isset($_GET['pagina'])) {
+            $pagina = $_GET['pagina'];
+        } else {
+            $pagina = 1;
+        }
+        $quantidade_de_registros = $this->dao->quantidade();
+        $quantidade_de_paginas = ceil($quantidade_de_registros / 10);
+        $offset = ($pagina * 10) - 10;
+        $produtos = $this->dao->listar($offset);
+        include_once 'view/produto/listarFormProduto.php';
     }
 
     public function alteracao() {

@@ -2,6 +2,7 @@
 
 include_once 'dao/MercadoDAO.php';
 include_once 'model/Mercado.php';
+include_once 'controller/ProdutoSupermercadoController.php';
 
 /**
  *
@@ -65,5 +66,12 @@ class MercadoController {
     public function excluir() {
         $this->dao->excluir($_GET['id']);
         $this->form();
+    }
+    
+    public function perfil() {
+        $mercado = $this->dao->buscar($_GET['id']);
+        $localizacao = $this->dao->getLocalizacao($_GET['id']);
+        $produtos = new ProdutoSupermercadoController();
+        include_once 'view/mercado/perfil.php';
     }
 }

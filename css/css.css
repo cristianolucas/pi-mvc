@@ -1,0 +1,20 @@
+body {
+    margin-top: 80px;
+}
+
+#card_produto_index {
+    margin: 0 15px 15px 0;
+    padding: 15px;
+}
+
+#nav_header {
+    background-color: #0000FF;
+}
+
+#nav_header .nav-link {
+    margin: 1px;
+}
+
+#nav_header ul li a {
+    color: #fff;
+}
